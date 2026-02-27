@@ -110,14 +110,15 @@ def run_agent(question: str):
         observation = tool_to_use.invoke(tool_args)
 
         print(f"[Tool Result] {observation}")
-        
+
         messages.append(ai_message)
         messages.append(
-            ToolMessage(content=str(observation), tool_call_id=tool_call_id)                
+            ToolMessage(content=str(observation), tool_call_id=tool_call_id)
         )
-        
+
     print("ERROR: Max iterations reached without a final answer")
     return None
+
 
 if __name__ == "__main__":
     run_agent("What is the price of a laptop after gold discount")
